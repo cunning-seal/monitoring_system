@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Метрики соединения</title>
+    <link rel="stylesheet" href="../../static/connection_metrics/index.css">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap-theme.min.css' %}">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="..">Главная</a></li>
+                    <li><a href="../abonents">Абоненты</a></li>
+                    <li><a href="../apps">Приложения</a></li>
+                    <li  class="active"><a href="../connection_metrics">Метрики соединения</a></li>
+                    <li><a href="../errors">Ошибки</a></li>
+                    <li><a href="../hardware_metrics">Метрики аппаратного обеспечения</a></li>
+                    <li><a href="../database_metrics">Метрики СУБД</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+{#    {% debug %}#}
+        {% if metric_list and apps_list %}
+            {% for app in apps_list %}
+                <div class="starter-template panel panel-default">
+                <h1>{{ app.name }}</h1>
+                <table class="table table-striped">
+                    <tr class='table_header'>
+                        <th>Абонент</th>
+                        <th>Количество подключений</th>
+                        <th>Получено байт</th>
+                        <th>Отдано байт</th>
+                        <th>Последнее подключение</th>
+                    </tr>
+                    {% for metric in metric_list %}
+
+                        {% if metric.app_id == app.id %}
+                        <tr>
+                        <td>{{ metric.ext_app_name }}</td>
+                        <td>{{ metric.connectionNumber }}</td>
+                        <td>{{ metric.receivedBytes }}</td>
+                        <td>{{ metric.sentBytes }}</td>
+                        <td>{{ metric.timeCon }}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <script type='text/javascript' src="{% static 'mainpage/dist/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript src={% static 'mainpage/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

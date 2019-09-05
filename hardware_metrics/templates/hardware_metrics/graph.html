@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Метрики железа</title>
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap-theme.min.css' %}">
+</head>
+<body onload="onLoad();" onresize="onResize();">
+
+<div id="chart_div_temperature"></div>
+<div id="chart_div_cpu"></div>
+<script src="../../static/hardware_metrics/graph.js"></script>
+
+<button width="30px" height="40px"><a href="./">К метрикам</a></button>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Метрики соединения</title>
+    <link rel="stylesheet" href="../../static/connection_metrics/index.css">
+        <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap-theme.min.css' %}">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="..">Главная</a></li>
+                    <li><a href="../abonents">Абоненты</a></li>
+                    <li><a href="../apps">Приложения</a></li>
+                    <li  class="active"><a href="../connection_metrics">Метрики соединения</a></li>
+                    <li><a href="../errors">Ошибки</a></li>
+                    <li><a href="../hardware_metrics">Метрики аппаратного обеспечения</a></li>
+                    <li><a href="../database_metrics">Метрики СУБД</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="starter-template panel panel-default">
+
+        {% if metric_list %}
+        <table class="table table-striped">
+
+            <tr class="table_header">
+            <th>Приложение</th>
+            <th>Количество подключений</th>
+            <th>Получено, байт</th>
+            <th>Отправлено, байт</th>
+            <th>Последнее подключение</th>
+        </tr>
+        {% for metric in metric_list %}
+            <tr>
+                <th><a href="../apps/{{ metric.app_id }}">{{ metric.app_name }}</a></th>
+                <th>{{ metric.connectionNumber}}</th>
+                <th>{{ metric.receivedBytes }}</th>
+                <th>{{ metric.sentBytes }}</th>
+                <th>{{ metric.last_con_metric.abonent.name }}</th>
+            </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+            <p>No connection metrics were found</p>
+        {% endif %}
+        </div>
+    </div>
+
+    <script type='text/javascript' src="{% static 'mainpage/dist/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript src={% static 'mainpage/dist/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

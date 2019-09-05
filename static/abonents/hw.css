@@ -1,0 +1,26 @@
+
+.col-lg-6{
+    margin: auto;
+}
+
+.tablewrapper1{
+        height: 500px;
+    overflow: auto;
+}
+
+.tablewrapper2{
+    height: 200px;
+    overflow: auto;
+}
+
+#main_table{
+
+}
+.panel{
+    margin-top: 50px;
+}
+
+.btn{
+    margin-top: 10px;
+}
+

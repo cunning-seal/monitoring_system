@@ -1,0 +1,126 @@
+/*html, body{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*a{*/
+    /*color: blue;*/
+/*}*/
+
+/*a:visited{*/
+    /*color:blue;*/
+/*}*/
+
+/*a:active{*/
+    /*color:blue;*/
+/*}*/
+/*h1{*/
+    /*color: blue;*/
+    /*position: relative;*/
+    /*left: 40%;*/
+/*}*/
+
+/*table{*/
+    /*position: relative;*/
+    /*left: 30%;*/
+/*}*/
+
+/*.dropdown*/
+/*{*/
+/*color: #555;*/
+/*margin: 3px -22px 0 0;*/
+/*width: 135px;*/
+/*position: relative;*/
+/*height: 17px;*/
+/*text-align:left;*/
+    /*font-size: 20px;*/
+/*}*/
+/*.submenu*/
+/*{*/
+/*background: #fff;*/
+/*position: absolute;*/
+/*top: -12px;*/
+/*left: -20px;*/
+/*z-index: 100;*/
+/*width: 135px;*/
+/*display: none;*/
+/*margin-left: 10px;*/
+/*padding: 40px 0 5px;*/
+/*border-radius: 6px;*/
+/*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);*/
+/*}*/
+/*.dropdown li a*/
+/*{*/
+/*color: #555555;*/
+/*display: block;*/
+/*font-family: arial;*/
+/*font-weight: bold;*/
+/*padding: 6px 15px;*/
+/*cursor: pointer;*/
+/*text-decoration:none;*/
+/*}*/
+
+/*.dropdown li a:hover*/
+/*{*/
+/*background:#155FB0;*/
+/*color: #FFFFFF;*/
+/*text-decoration: none;*/
+/*}*/
+/*a.menu*/
+/*{*/
+/*font-size: 20px;*/
+/*line-height: 30px;*/
+/*color: black;*/
+/*position: absolute;*/
+/*z-index: 110;*/
+/*display: block;*/
+/*padding: 11px 0 0 20px;*/
+/*height: 28px;*/
+/*width: 121px;*/
+/*margin: -11px 0 0 -10px;*/
+/*text-decoration: none;*/
+/*cursor:pointer;*/
+/*}*/
+/*.root*/
+/*{*/
+/*list-style:none;*/
+/*margin:0px;*/
+/*padding:0px;*/
+/*font-size: 11px;*/
+/*padding: 11px 0 0 0px;*/
+/*border-top:1px solid #dedede;*/
+/*}*/
+
+/*td, th{*/
+    /*text-align: center;*/
+/*}*/
+
+/*tr:hover{*/
+    /*background-color: #afc1ff;*/
+/*}*/
+
+/*.table_header{*/
+    /*background-color: white;*/
+/*}*/
+
+/*.table_header:hover{*/
+    /*background-color: white;*/
+/*}*/
+
+body{
+    padding-top:50px
+}
+h1{
+    margin: auto;
+}
+.starter-template{
+    padding:25px 15px;
+    text-align:center
+}
+
+.table{
+    margin: auto;
+}
+
+.table-striped{
+    margin: auto;
+}

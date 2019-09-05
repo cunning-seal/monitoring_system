@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>External Applications</title>
+    <link rel="stylesheet" href="../../static/apps_set/index.css">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap-theme.min.css' %}">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+
+    <h1>Приложения</h1>
+
+    {% if apps_list %}
+    <table>
+    <tr>
+        <th>ID приложения</th>
+        <th>Название приложения</th>
+    </tr>
+    {% for app in apps_list %}
+        <tr>
+            <th>{{ app.name }}</th>
+            <th>{{ app.id }}</th>
+        </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+        <p>No applications were found</p>
+    {% endif %}
+    <script type='text/javascript' src="{% static 'mainpage/dist/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript src={% static 'mainpage/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

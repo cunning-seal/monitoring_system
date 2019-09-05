@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    {% load staticfiles %}
+    <title>Абоненты</title>
+    <link rel="stylesheet" href="{% static 'abonents/index.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/dist/css/bootstrap-theme.min.css' %}">
+
+    {# HTML5 shiv and Respond.js for IE8 support of HTML5 elements and media queries #}
+    {# WARNING: Respond.js doesn't work if you view the page via file:// #}
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+{#            <a class="navbar-brand" href="#">Абоненты</a>#}
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="..">Главная</a></li>
+                    <li class="active"><a href="../abonents">Абоненты</a></li>
+                    <li><a href="../apps">Приложения</a></li>
+                    <li><a href="../connection_metrics">Метрики соединения</a></li>
+                    <li><a href="../errors">Ошибки</a></li>
+                    <li><a href="../hardware_metrics">Метрики аппаратного обеспечения</a></li>
+                    <li><a href="../database_metrics">Метрики СУБД</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <h1>Список абонентов</h1>
+    <div class="starter-template panel panel-default">
+    {% if abonents_list %}
+    <table class="table table-striped">
+    <tr class="table_header">
+        <th>Имя</th>
+        <th>ID абонента</th>
+    </tr>
+    {% for abonent in abonents_list %}
+        <tr>
+            <th><a href="{{ abonent.computer_id }}">{{ abonent.name }}</a></th>
+            <th>{{ abonent.computer_id }}</th>
+
+        </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+        <p>No abonents was found</p>
+    {% endif %}
+    </div>
+</div>
+
+    <div id="page_id" style="display: none">1</div>
+    <script type='text/javascript' src="{% static 'mainpage/dist/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript src={% static 'mainpage/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
